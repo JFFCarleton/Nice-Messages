@@ -1,8 +1,8 @@
 ﻿{
-	"line1":"good morning",
-	"line2":"this is a nice morning",
-	"line3":"you can smell the flowers outside",
-	"line4":"it's a nice day",
-	"line5":"now lift thine heavy head and vanquish thy sorrow! Lightning doth strike, thunder doth roll",
-	"line6":"now turn thy gaze ahead and look to the morrow! Lightning shall strike, turnder shall roll on"
+	0:"good morning",
+	1:"this is a nice morning",
+	2:"you can smell the flowers outside",
+	3:"it's a nice day",
+	4:"now lift thine heavy head and vanquish thy sorrow! Lightning doth strike, thunder doth roll",
+	5:"now turn thy gaze ahead and look to the morrow! Lightning shall strike, turnder shall roll on"
 }

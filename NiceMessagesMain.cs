@@ -32,7 +32,7 @@ namespace Nice_Messages
 
         private void GameLoop_DayStarted(object sender, DayStartedEventArgs e){
             changeSeason(currSeason);
-            Game1.showGlobalMessage("Hi i'm a test! "+currSeason+" "+niceMessages.randomMorningMessage());
+            Game1.showGlobalMessage(niceMessages.randomMorningMessage());
         }
         
         private void GameLoop_DayEnding(object sender, DayEndingEventArgs e){

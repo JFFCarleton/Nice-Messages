@@ -12,20 +12,20 @@ using System.Collections;
 namespace Nice_Messages
 {
     class NiceMessages {
-        private string[] loadInMessages;
-        private string[] newDayMessages;
+        private Dictionary<int,string> newDayMessages;
         private IModHelper helperMcHelperson; //because this is a hobby project and I think he's a cute helper!
 
      
         public NiceMessages(string season, IModHelper helper){
                 this.helperMcHelperson = helper;
-                this.newDayMessages = File.ReadAllLines(
-                    helperMcHelperson.Content.Load<string>(getNewSeasonMessages(season), ContentSource.ModFolder)
+                this.newDayMessages = (
+                     helperMcHelperson.Content.Load<Dictionary<int,string>>(getNewSeasonMessages(season), ContentSource.ModFolder)
                 );
         }
        
         private string getNewSeasonMessages(string season){
-            switch (season){
+            switch (season)
+            {
                 case "spring":
                     return "springMessages.json";
 
@@ -43,9 +43,8 @@ namespace Nice_Messages
         }
 
         public string randomMorningMessage() {
-            //todo, add in RNG. set to 0 for now for testing
-            return this.newDayMessages[0];
+            Random RNG = new Random();
+            return this.newDayMessages[RNG.Next(newDayMessages.Count)-1];
         }
-        public String[] getLoadInMessages() { return this.loadInMessages; }
     }
 }
