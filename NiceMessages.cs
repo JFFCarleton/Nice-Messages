@@ -17,7 +17,8 @@ namespace Nice_Messages
         private IModHelper helperMcHelperson; //because this is a hobby project and I think he's a cute helper!
 
      
-        public NiceMessages(string season){
+        public NiceMessages(string season, IModHelper helper){
+                this.helperMcHelperson = helper;
                 this.newDayMessages = File.ReadAllLines(
                     helperMcHelperson.Content.Load<string>(getNewSeasonMessages(season), ContentSource.ModFolder)
                 );
@@ -26,16 +27,16 @@ namespace Nice_Messages
         private string getNewSeasonMessages(string season){
             switch (season){
                 case "spring":
-                    return "springMessages.txt";
+                    return "springMessages.json";
 
                 case "summer":
-                    return "summerMessages.txt";
+                    return "summerMessages.json";
 
                 case "fall":
-                    return "fallMessages.txt";
+                    return "fallMessages.json";
 
                 case "winter":
-                    return "winterMessages.txt";
+                    return "winterMessages.json";
             }
                 //Monitor.Log("no season found", LogLevel.Error);
             return null;

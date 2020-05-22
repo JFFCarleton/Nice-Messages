@@ -17,6 +17,7 @@ namespace Nice_Messages
         
         //SM Api set up
         public override void Entry(IModHelper oneHelpyBoi){
+            this.oneHelpyBoi = oneHelpyBoi;
             oneHelpyBoi.Events.GameLoop.SaveLoaded += GameLoop_SaveLoaded;
             oneHelpyBoi.Events.GameLoop.DayStarted += GameLoop_DayStarted;
             oneHelpyBoi.Events.GameLoop.DayEnding += GameLoop_DayEnding;
@@ -25,7 +26,7 @@ namespace Nice_Messages
         //listeners
         private void GameLoop_SaveLoaded(object sender, SaveLoadedEventArgs e){
             this.currSeason = Game1.currentSeason;
-            this.niceMessages = new NiceMessages(currSeason);
+            this.niceMessages = new NiceMessages(currSeason, this.oneHelpyBoi);
             Game1.showGlobalMessage("Game Save Loaded!");
         }
 
@@ -42,7 +43,7 @@ namespace Nice_Messages
         private void changeSeason(String checkSeason) {
             if (this.currSeason == Game1.currentSeason) { return; }
             this.currSeason = Game1.currentSeason;
-            this.niceMessages = new NiceMessages(currSeason);
+            this.niceMessages = new NiceMessages(currSeason, oneHelpyBoi);
         }
     
     }
