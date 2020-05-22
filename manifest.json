@@ -1,0 +1,10 @@
+﻿{
+  "Name": "NiceMessages",
+  "Author": "Nori",
+  "Version": "1.0.0",
+  "Description": "Some Nice Messages",
+  "UniqueID": "nori.NiceMessages",
+  "EntryDll": "Nice Messages.dll",
+  "MinimumApiVersion": "3.0.0",
+  "UpdateKeys": []
+}
