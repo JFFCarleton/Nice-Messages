@@ -1,26 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using StardewValley;
 using StardewModdingAPI;
-using StardewModdingAPI.Events;
-using System.IO;
-using System.Collections;
 
 namespace Nice_Messages
 {
     class NiceMessages {
         private Dictionary<int,string> newDayMessages;
-        private IModHelper helperMcHelperson; //because this is a hobby project and I think he's a cute helper!
+        private IModHelper modelHelper;
 
      
         public NiceMessages(string season, IModHelper helper){
-                this.helperMcHelperson = helper;
-                this.newDayMessages = (
-                     helperMcHelperson.Content.Load<Dictionary<int,string>>(getNewSeasonMessages(season), ContentSource.ModFolder)
-                );
+            this.modelHelper = helper;
+            this.newDayMessages = (
+                    modelHelper.Content.Load<Dictionary<int,string>>(getNewSeasonMessages(season), ContentSource.ModFolder)
+            );
         }
        
         private string getNewSeasonMessages(string season){
@@ -38,13 +31,14 @@ namespace Nice_Messages
                 case "winter":
                     return "winterMessages.json";
             }
-                //Monitor.Log("no season found", LogLevel.Error);
+            //if you get here, that means there are no seasons....
+            //the implications of that are... troubling....
             return null;
         }
 
         public string randomMorningMessage() {
             Random RNG = new Random();
-            return this.newDayMessages[RNG.Next(newDayMessages.Count)-1];
+                return this.newDayMessages[RNG.Next(0, newDayMessages.Count-1)];
         }
-    }
-}
+    }//end of class
+}//end of namespace
