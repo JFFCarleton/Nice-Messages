@@ -6,6 +6,7 @@ namespace Nice_Messages
 {
     class NiceMessages {
         private Dictionary<int,string> newDayMessages;
+        private Dictionary<string, Dictionary<int, string>> unifiedMessages;
         private IModHelper modelHelper;
 
         public NiceMessages(string season, IModHelper helper){
@@ -13,6 +14,11 @@ namespace Nice_Messages
             this.newDayMessages = (
                     modelHelper.Content.Load<Dictionary<int,string>>(getNewSeasonMessages(season), ContentSource.ModFolder)
             );
+            this.unifiedMessages = (modelHelper.Content.Load    <Dictionary 
+                                                             <string, Dictionary
+                                                                     <int,string>>>
+            ("unifiedMessages.json", ContentSource.ModFolder) );
+            
         }
        
         private string getNewSeasonMessages(string season){
