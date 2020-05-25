@@ -8,7 +8,6 @@ namespace Nice_Messages
         private Dictionary<int,string> newDayMessages;
         private IModHelper modelHelper;
 
-     
         public NiceMessages(string season, IModHelper helper){
             this.modelHelper = helper;
             this.newDayMessages = (
