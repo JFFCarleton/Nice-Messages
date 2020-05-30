@@ -9,38 +9,33 @@ namespace Nice_Messages
     {
         private NiceMessages niceMessages;
         private IModHelper mainHelper;
-        private String currSeason;
         
         //SM Api set up
-        public override void Entry(IModHelper oneHelpyBoi){
-            this.mainHelper = oneHelpyBoi;
-            oneHelpyBoi.Events.GameLoop.SaveLoaded += GameLoop_SaveLoaded;
-            oneHelpyBoi.Events.GameLoop.DayStarted += GameLoop_DayStarted;
+        public override void Entry(IModHelper mainHelper){
+            this.mainHelper = mainHelper;
+            mainHelper.Events.GameLoop.SaveLoaded += GameLoop_SaveLoaded;
+            mainHelper.Events.GameLoop.DayStarted += GameLoop_DayStarted;
         }
 
         //listeners
         private void GameLoop_SaveLoaded(object sender, SaveLoadedEventArgs e){
-            this.currSeason = Game1.currentSeason;
-            this.niceMessages = new NiceMessages(currSeason, mainHelper);
+            this.niceMessages = new NiceMessages(mainHelper);
         }
 
         private void GameLoop_DayStarted(object sender, DayStartedEventArgs e){
-            changeSeason(currSeason);
-            try { Game1.showGlobalMessage(niceMessages.randomMorningMessage()); }
+            try {
+                Game1.showGlobalMessage(niceMessages.getMorningMessage(Game1.currentSeason, Game1.weatherIcon));
+            }
 
             //Catch a bad formatting excption
+            //TODO: Reevaluate exceptions that can be caught. new solution shouldn't have an odd index error like this.
+                //NULL exception possible
             catch (System.Collections.Generic.KeyNotFoundException) {
-                Monitor.Log("Invalid Key. Look in " + currSeason + "Messages.json and ensure it is in the format: int:\"message\"" +
-                    "\n\t\tAlso ensure that keys are intigers, starting at 0 with no skipped numbers.", LogLevel.Error);
+                Monitor.Log("Invalid key: Make sure there are no spelling errors in the keys in unifiedMessages.json"+
+                    "For a list of valid keys, please see the README", LogLevel.Error);
+                //TODO: make the readme.
             }
         }
 
-        //methods
-        private void changeSeason(String checkSeason) {
-            if (this.currSeason == Game1.currentSeason) { return; }
-            this.currSeason = Game1.currentSeason;
-            this.niceMessages = new NiceMessages(currSeason, mainHelper);
-        }
-    
     }
 }

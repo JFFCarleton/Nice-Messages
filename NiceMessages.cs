@@ -1,49 +1,81 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
+using Microsoft.Xna.Framework;
 using StardewModdingAPI;
+using StardewValley;
 
 namespace Nice_Messages
 {
     class NiceMessages {
-        private Dictionary<int,string> newDayMessages;
-        private Dictionary<string, Dictionary<int, string>> unifiedMessages;
+        private Dictionary< string, string[] > unifiedMessages;
         private IModHelper modelHelper;
 
-        public NiceMessages(string season, IModHelper helper){
+        public NiceMessages(IModHelper helper){
             this.modelHelper = helper;
-            this.newDayMessages = (
-                    modelHelper.Content.Load<Dictionary<int,string>>(getNewSeasonMessages(season), ContentSource.ModFolder)
-            );
-            this.unifiedMessages = (modelHelper.Content.Load    <Dictionary 
-                                                             <string, Dictionary
-                                                                     <int,string>>>
-            ("unifiedMessages.json", ContentSource.ModFolder) );
-            
+            this.unifiedMessages = modelHelper.Content.Load<Dictionary<string,string[]>>("unifiedMessages.json", ContentSource.ModFolder);
         }
-       
-        private string getNewSeasonMessages(string season){
-            switch (season)
-            {
-                case "spring":
-                    return "springMessages.json";
 
-                case "summer":
-                    return "summerMessages.json";
+        /*
+         * Takes the indentified weather as a key and accesses the correct table, returning a random message
+         * based on the number of messages in the message table array.
+         * result of the random number is subtracted by 1 to correct for index starting at 0
+         */
 
-                case "fall":
-                    return "fallMessages.json";
+        public string getMorningMessage(string currSeason, int weatherIcon){
+            string weatherKey = identifyWeather(currSeason, weatherIcon);
+            string[] msgTable = unifiedMessages[weatherKey];
+            return msgTable[new Random().Next(msgTable.Length - 1)];
+        }
 
-                case "winter":
-                    return "winterMessages.json";
+
+        //Creates a key to be used by final dictonary.
+        //Keys are strings in "<season>/<weather>" format except for festivals, since they are fixed seasons
+        //      planning to add in section for fests after main functionality is working
+        //Keys will be used to select the correct table of lines from the master dictonary
+
+        /* 
+         * VALD KEYS ********************************************************************
+         * spring/wedding       summer/wedding      fall/wedding        winter/wedding  *
+         * spring/sunny         summer/sunny        fall/sunny          winter/sunny    *
+         * spring/windy                             fall/windy                          *
+         * spring/rain          summer/rain         fall/rain                           *
+         * spring/lightning     summer/lightning    fall/lightning                      *
+         *                                                              winter/snow     *
+         * ******************************************************************************
+         */
+        private string identifyWeather(string currSeason, int currWeather) {
+            switch (currWeather) {
+                case 0: return currSeason+"/wedding";
+                
+                //******************************************************************************************************
+                //icon 1 is for fests, which means weather will be sunny. setting to sunny for now, will add fests later
+                //case 1: return identifyFest(Game1.whereIsTodaysFest);
+                case 1: return currSeason+"/sunny"; 
+                //******************************************************************************************************
+                
+                case 2: return currSeason+"/sunny";
+                case 3: return "spring/windy";
+                case 4: return currSeason+"/rain";
+                case 5: return currSeason+"/lightning";
+                case 6: return "fall/windy";
+                case 7: return "winter/snow";
             }
-            //if you get here, that means there are no seasons....
-            //the implications of that are... troubling....
+            //put in exception handel here.
             return null;
         }
 
-        public string randomMorningMessage() {
-            Random RNG = new Random();
-                return this.newDayMessages[RNG.Next(0, newDayMessages.Count-1)];
+        /*
+        //TODO: Method to identify which fest it is today. Come back to this once main functionality is working
+        private string identifyFest(string location)
+        {
+            switch (location)
+            {
+            }
+            return "error";
         }
+        */
+
     }//end of class
 }//end of namespace

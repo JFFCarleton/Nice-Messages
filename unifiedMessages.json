@@ -1,58 +1,89 @@
-﻿
-{
-	"spring":
-	{
-		0:"You can feel the warmth of spring surround you.",
-		1:"Spring showers bring summer flowers, or so they say.",
-		2:"There's still a bit of a chill this morning, but nothing a good bit of farm work won't fix!",
-		3:"Dawn of the first day, 72 hours remain.",
-		4:"It's unusually warm this morning! Looks like summer decided to come early.",
-		5:"It's unusually cold this morning... Winter hasn't forgotten you yet.",
-		6:"The scent of wildflowers find their way into your home on the breeze.",
-		7:"You awaken, finding your blankets overly warm. 6:00am... it's too ealry for this.",
-		8:"The wind blows strongly out side, howling as it passes over your house.",
-		9:"You hear a distant rustleing from the bushes. Sounds like the squrrals are up early too."
-	},
+﻿{
+	"spring/wedding":
+	[
+	
+	],
 
-	"summer":
-	{
-		0:"The early sunrise rouses you from your sleep.",
-		1:"The humid air coaxes from your blankets to start your day.",
-		2:"The birds are chirping merrily this morning.",
-		3:"You smell fresh flowers in the breeze from your open window.",
-		4:"You can tell already, it's going to be a hot one.",
-		5:"Dawn of the second day: 48 hours remain",
-		6:"It's a beautiful day to do some farm work!",
-		7:"I love the smell of farmland in the morning!",
-		8:"It's a beautiful day outside. birds are singing, flowers are blooming... on days like these, kids like you... Should be workin' on the farm!.",
-		9:"The first light of the early sunrise softly fills the room"
-	},
+	"spring/sunny":
+	[
+	
+	],
 
-	"fall":
-	{
-		0:"The smell of autumn leaves fills the air as you slowly rouse from your slumber.",
-		1:"The morning is darker than it was yesterday. Winter is getting closer day by day now.",
-		2:"It's unexpectedly warm this morning. Should make farm work more comfortable today.",
-		3:"It's colder than usual today. Looks like winter decided to give you a preview.",
-		4:"You see the beautiful display of coloured leaves from your window.",
-		5:"You wake with a start from a small sneezing fit. Are you catching a cold?",
-		6:"You hear various small animals skittering around outside, gathering supplies for the winter.",
-		7:"Dawn of the Final day: 24 hours remain.",
-		8:"You hear the loud honking of geese coming from overhead, they are flying south for the winter.",
-		9:"The days are getting shorter and the air cooler. Winter is coming."
-	},
+	"spring/windy":
+	[
+	
+	],
 
-	"winter":
-	{
-		0:"A chill draft wakes you from your sleep...",
-		1:"You catch a glimpse of the snow outside. It sparkles in the morning sunlight.",
-		2:"Your bed is warm and cozy.... you really don't want to get up, but the day has started.",
-		3:"The air is crisp and cool and your ears are a little chilled in the morning air.",
-		4:"You've met with a terrible fate, haven't you?",
-		5:"You hear the soft crunching of snow from outside. A snow rabbit perhaps?",
-		6:"You lay in bed a few minuets more. It's too cozy to get up just yet.",
-		7:"You woke up earlier than expected this morning. You feel energized and ready to go!",
-		8:"You dreamt about the holidays last night. It's put you in a cheery mood this morning",
-		9:"Your windows are frosted over with ice on the rims. It's bitterly cold today."
-	}
+	"spring/rain":
+	[
+	
+	],
+
+	"spring/lightning":
+	[
+	
+	],
+
+
+	"summer/wedding":
+	[
+	
+	],
+
+	"summer/sunny":
+	[
+	
+	],
+
+	"summer/rain":
+	[
+	
+	],
+
+	"summer/lightning":
+	[
+	
+	],
+
+
+	"fall/wedding":
+	[
+	
+	],
+
+	"fall/sunny":
+	[
+	
+	],
+
+	"fall/windy":
+	[
+	
+	],
+
+	"fall/rain":
+	[
+	
+	],
+
+	"fall/lightning"
+	[
+	
+	],
+
+
+	"winter/wedding":
+	[
+	
+	],
+
+	"winter/sunny":
+	[
+	
+	],
+
+	"winter/snow":
+	[
+	
+	]
 }
