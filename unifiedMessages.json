@@ -1,89 +1,135 @@
 ﻿{
 	"spring/wedding":
 	[
-	
+	"test spring wedding"
 	],
 
 	"spring/sunny":
 	[
-	
+	"test sping sunny",
+	"test to make sure loads array good"
 	],
 
 	"spring/windy":
 	[
-	
+	"test spring wind"
 	],
 
 	"spring/rain":
 	[
-	
+	"test spring rain"
 	],
 
 	"spring/lightning":
 	[
-	
+	"test spring lightning"
+	],
+
+	"eggFest":
+	[
+	"test egg fest"
+	],
+
+	"flowerDance":
+	[
+	"test flower dance"
 	],
 
 
 	"summer/wedding":
 	[
-	
+	"test summer wedding"
 	],
 
 	"summer/sunny":
 	[
-	
+	"test summer sun"
 	],
 
 	"summer/rain":
 	[
-	
+	"test summer rain"
 	],
 
 	"summer/lightning":
 	[
+	"test summer lightining"
+	],
 	
+	"luau":
+	[
+	"test luau"
+	],
+	
+	"moonlightJellies":
+	[
+	"test moonlight Jellies"
 	],
 
 
 	"fall/wedding":
 	[
-	
+	"test fall wedding"
 	],
 
 	"fall/sunny":
 	[
-	
+	"test fall sun"
 	],
 
 	"fall/windy":
 	[
-	
+	"test fall wind"
 	],
 
 	"fall/rain":
 	[
-	
+	"test fall rain"
 	],
 
-	"fall/lightning"
+	"fall/lightning":
 	[
-	
+	"test fall lnighting"
+	],
+
+	"stardewValleyFair":
+	[
+	"test SDV Fair"
+	],
+
+	"spiritsEve":
+	[
+	"test not halloween"
 	],
 
 
 	"winter/wedding":
 	[
-	
+	"test winter wedding"
 	],
 
 	"winter/sunny":
 	[
-	
+	"test winter sun"
 	],
 
 	"winter/snow":
 	[
-	
+	"test winter snow"
+	],
+
+	"festOfIce":
+	[
+	"test ice fest"
+	],
+
+	"nightMarket":
+	[
+	"test night market"
+	],
+
+	"winterStar":
+	[
+	"test winter star"
 	]
 }

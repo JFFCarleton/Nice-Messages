@@ -12,7 +12,8 @@ namespace Nice_Messages
         private Dictionary< string, string[] > unifiedMessages;
         private IModHelper modelHelper;
 
-        public NiceMessages(IModHelper helper){
+        public NiceMessages(IModHelper helper)
+        {
             this.modelHelper = helper;
             this.unifiedMessages = modelHelper.Content.Load<Dictionary<string,string[]>>("unifiedMessages.json", ContentSource.ModFolder);
         }
@@ -23,8 +24,9 @@ namespace Nice_Messages
          * result of the random number is subtracted by 1 to correct for index starting at 0
          */
 
-        public string getMorningMessage(string currSeason, int weatherIcon){
-            string weatherKey = identifyWeather(currSeason, weatherIcon);
+        public string getMorningMessage(string currSeason, int weatherIcon, int currDay)
+        {
+            string weatherKey = identifyWeather(currSeason, weatherIcon, currDay);
             string[] msgTable = unifiedMessages[weatherKey];
             return msgTable[new Random().Next(msgTable.Length - 1)];
         }
@@ -43,39 +45,49 @@ namespace Nice_Messages
          * spring/rain          summer/rain         fall/rain                           *
          * spring/lightning     summer/lightning    fall/lightning                      *
          *                                                              winter/snow     *
+         * eggFest              luau                stardewValleyFair   festOfIce       *
+         * flowerDance          moonlightJellies    spiritsEve          nightMarket     *
+         *                                                              winterStar      *
          * ******************************************************************************
          */
-        private string identifyWeather(string currSeason, int currWeather) {
-            switch (currWeather) {
-                case 0: return currSeason+"/wedding";
-                
-                //******************************************************************************************************
-                //icon 1 is for fests, which means weather will be sunny. setting to sunny for now, will add fests later
-                //case 1: return identifyFest(Game1.whereIsTodaysFest);
-                case 1: return currSeason+"/sunny"; 
-                //******************************************************************************************************
-                
-                case 2: return currSeason+"/sunny";
-                case 3: return "spring/windy";
-                case 4: return currSeason+"/rain";
-                case 5: return currSeason+"/lightning";
-                case 6: return "fall/windy";
-                case 7: return "winter/snow";
+        private string identifyWeather(string currSeason, int currWeather, int currDay) 
+        {
+            //have to check if night market happens here, b/c it doesn't use the fest icon.
+            if (currSeason == "summer" && ( 15 <= currDay || 17 >=currDay ) ) { return "nightMarket"; } 
+            
+            switch (currWeather) 
+            {
+                case 0:     return currSeason+"/wedding";
+                case 1:     return identifyFest(currDay); 
+                case 2:     return currSeason+"/sunny";
+                case 3:     return "spring/windy";
+                case 4:     return currSeason+"/rain";
+                case 5:     return currSeason+"/lightning";
+                case 6:     return "fall/windy";
+                case 7:     return "winter/snow";
             }
             //put in exception handel here.
-            return null;
+            return "error";
         }
 
         /*
-        //TODO: Method to identify which fest it is today. Come back to this once main functionality is working
-        private string identifyFest(string location)
+         * When I get a icon number of "1", it means it's a festival day. since each festival, no matter the season, has a
+         * unique day on which it takes place, all I have to do is check the number.
+         */
+        private string identifyFest(int dayOfMonth)
         {
-            switch (location)
+            switch (dayOfMonth)
             {
+                case 13:    return "eggFest";
+                case 24:    return "flowerDance";
+                case 11:    return "luau";
+                case 28:    return "moonlightJellies";
+                case 16:    return "stardewValleyFair";
+                case 27:    return "spiritsEve";
+                case 8:     return "festOfIce";
+                case 25:    return "winterStar";
             }
             return "error";
         }
-        */
-
     }//end of class
 }//end of namespace
