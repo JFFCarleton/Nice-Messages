@@ -53,7 +53,7 @@ namespace Nice_Messages
         private string identifyWeather(string currSeason, int currWeather, int currDay) 
         {
             //have to check if night market happens here, b/c it doesn't use the fest icon.
-            if (currSeason == "summer" && ( 15 <= currDay || 17 >=currDay ) ) { return "nightMarket"; } 
+            if (currSeason == "winter" && ( currDay >= 15 && currDay <= 17 ) ) { return "nightMarket"; } 
             
             switch (currWeather) 
             {
