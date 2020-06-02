@@ -27,7 +27,7 @@ namespace Nice_Messages
             //chance a message will appear, editable in config.json
             if (Config.msgChance < new Random().Next(1, 99)) { return; }
             try 
-            { Game1.showGlobalMessage(niceMessages.getMorningMessage(Game1.currentSeason, Game1.weatherIcon, Game1.dayOfMonth)); }
+            { Game1.showGlobalMessage(niceMessages.getMorningMessage(Game1.currentSeason, Game1.weatherIcon)); }
 
             //Catch a bad formatting excption
             catch (System.Collections.Generic.KeyNotFoundException) {

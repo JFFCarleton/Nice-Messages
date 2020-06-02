@@ -24,9 +24,9 @@ namespace Nice_Messages
          * result of the random number is subtracted by 1 to correct for index starting at 0
          */
 
-        public string getMorningMessage(string currSeason, int weatherIcon, int currDay)
+        public string getMorningMessage(string currSeason, int weatherIcon)
         {
-            string weatherKey = identifyWeather(currSeason, weatherIcon, currDay);
+            string weatherKey = identifyWeather(currSeason, weatherIcon);
             string[] msgTable = unifiedMessages[weatherKey];
             return msgTable[new Random().Next(msgTable.Length - 1)];
         }
@@ -45,20 +45,14 @@ namespace Nice_Messages
          * spring/rain          summer/rain         fall/rain                           *
          * spring/lightning     summer/lightning    fall/lightning                      *
          *                                                              winter/snow     *
-         * eggFest              luau                stardewValleyFair   festOfIce       *
-         * flowerDance          moonlightJellies    spiritsEve          nightMarket     *
-         *                                                              winterStar      *
          * ******************************************************************************
          */
-        private string identifyWeather(string currSeason, int currWeather, int currDay) 
-        {
-            //have to check if night market happens here, b/c it doesn't use the fest icon.
-            if (currSeason == "winter" && ( currDay >= 15 && currDay <= 17 ) ) { return "nightMarket"; } 
-            
+        private string identifyWeather(string currSeason, int currWeather) 
+        {   
             switch (currWeather) 
             {
-                case 0:     return currSeason+"/wedding";
-                case 1:     return identifyFest(currDay); 
+                case 0:     return currSeason+"/sunny";
+                case 1:     return currSeason+"/sunny";
                 case 2:     return currSeason+"/sunny";
                 case 3:     return "spring/windy";
                 case 4:     return currSeason+"/rain";
@@ -70,24 +64,5 @@ namespace Nice_Messages
             return "error";
         }
 
-        /*
-         * When I get a icon number of "1", it means it's a festival day. since each festival, no matter the season, has a
-         * unique day on which it takes place, all I have to do is check the number.
-         */
-        private string identifyFest(int dayOfMonth)
-        {
-            switch (dayOfMonth)
-            {
-                case 13:    return "eggFest";
-                case 24:    return "flowerDance";
-                case 11:    return "luau";
-                case 28:    return "moonlightJellies";
-                case 16:    return "stardewValleyFair";
-                case 27:    return "spiritsEve";
-                case 8:     return "festOfIce";
-                case 25:    return "winterStar";
-            }
-            return "error";
-        }
     }//end of class
 }//end of namespace
