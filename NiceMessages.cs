@@ -45,20 +45,17 @@ namespace Nice_Messages
          * spring/rain          summer/rain         fall/rain                           *
          * spring/lightning     summer/lightning    fall/lightning                      *
          *                                                              winter/snow     *
-         * eggFest              luau                stardewValleyFair   festOfIce       *
-         * flowerDance          moonlightJellies    spiritsEve          nightMarket     *
-         *                                                              winterStar      *
          * ******************************************************************************
          */
         private string identifyWeather(string currSeason, int currWeather, int currDay) 
         {
             //have to check if night market happens here, b/c it doesn't use the fest icon.
-            if (currSeason == "winter" && ( currDay >= 15 && currDay <= 17 ) ) { return "nightMarket"; } 
+            //if (currSeason == "winter" && ( currDay >= 15 && currDay <= 17 ) ) { return "nightMarket"; } 
             
             switch (currWeather) 
             {
-                case 0:     return currSeason+"/wedding";
-                case 1:     return identifyFest(currDay); 
+                case 0:     return currSeason+"/sunny";
+                case 1:     return currSeason+"/sunny"; 
                 case 2:     return currSeason+"/sunny";
                 case 3:     return "spring/windy";
                 case 4:     return currSeason+"/rain";
@@ -70,10 +67,12 @@ namespace Nice_Messages
             return "error";
         }
 
-        /*
+        /*CUT FOR NOW: Will reimpliment in future version.
+         * I don't think it fits with the "morning messages" idea. I will expand on this if I make messages for player entering
+         * new areas.
          * When I get a icon number of "1", it means it's a festival day. since each festival, no matter the season, has a
          * unique day on which it takes place, all I have to do is check the number.
-         */
+         
         private string identifyFest(int dayOfMonth)
         {
             switch (dayOfMonth)
@@ -89,5 +88,7 @@ namespace Nice_Messages
             }
             return "error";
         }
+        */
+
     }//end of class
 }//end of namespace

@@ -1,28 +1,34 @@
 ﻿{
-	"spring/wedding":
-	[
-	"test spring wedding"
-	],
-
 	"spring/sunny":
 	[
-	"test sping sunny",
-	"test to make sure loads array good"
+	"The sun gently peeks into the room, slowly waking you up for another day.",
+	"The birds are chirping merrily this morning.",
+	"It's unusually warm this morning! Looks like summer decided to come early.",
+	"You hear a distant rustleing from the bushes. Sounds like the squrrals are busy this morning.",
+	"You can hear birds signing merrily this morning. They sound like they are happy to be home from the winter",
+	"It's unseasonably cold this morning... it seems that winter isn't quite done yet.",
+	"You awaken just in time to see the first sunlight from your window. You feel like today will be a good day.",
+	"As you watch the sunrise from your window, you spot a baby rabbit hop across your yard."
 	],
 
 	"spring/windy":
 	[
-	"test spring wind"
+	"A soft breeze fills the room with scent of flowers.",
+	"The scent of wildflowers find their way into your home on the breeze.",
+	"A warm breeze has found it's way over the valley, you can see flower pedals floating by your window."
 	],
 
 	"spring/rain":
 	[
-	"test spring rain"
+	"It's chilly this morning, with mosture in the air.",
+	"You awaken to the soft pitter patter of raindrops."
 	],
 
 	"spring/lightning":
 	[
-	"test spring lightning"
+	"As you slowly awaken from your sleep, you hear the heavy rain falling outside your house accompanied by the crack of thunder.",
+	"A flash of light brefly fills the room before the distant rumble of thunder echos over the valley.",
+	"You awaken to the sound of the rain pounding agasint your roof"
 	],
 
 	"eggFest":
@@ -36,24 +42,31 @@
 	],
 
 
-	"summer/wedding":
-	[
-	"test summer wedding"
-	],
-
 	"summer/sunny":
 	[
-	"test summer sun"
+	"You awaken, feeling overly warm under the blankets. You can tell it's going to be a hot day.",
+	"It's a beautiful day to do some farm work!",
+	"The humidity fills the room even this early in the morning.",
+	"It's nice this morning! Not too hot, not too cold. You feel energized and ready to take on the day!",
+	"It's surprisingly chilly this morning. Feels like it might be a mild day.",
+	"You awaken to the sound of birds signing outside your window, already going about their day.",
+	"It's already bight and sunny outside by the time you wake up. Time to get up and meet the day!",
+	"Sun bathes the valley before you have a chance to wake up.",
+	"An early sunrise beams down on your face, waking you from your sleep."
 	],
 
 	"summer/rain":
 	[
-	"test summer rain"
+	"A warm wind blows in your open window, carrying a few raindrops inside with it.",
+	"A gentle raincould has blanketed the valley this morning. Mosture lingers in the air as the rain falls outside.",
+	"The rain offers no relief from the oppresive heat, instead adding to the already stifling humidity.",
+	"A cool wind meets the warm summer air as rain washes over the valley, a reprieve from the hot summer air."
 	],
 
 	"summer/lightning":
 	[
-	"test summer lightining"
+	"Humidity fills the room as the rain crashes agasint the roof. Haven't had a storm like this in a while...",
+	"You can almost feel the electricty in the air as a flash of light from outside confirms to you today's weather."
 	],
 	
 	"luau":
@@ -67,24 +80,25 @@
 	],
 
 
-	"fall/wedding":
-	[
-	"test fall wedding"
-	],
-
 	"fall/sunny":
 	[
-	"test fall sun"
+	"Your room is filled with the smell of freshly fallen leaves.",
+	"As you awaken, you catch a glimpse of a few critters scurring about, gathering food for the winter.",
+	"It's really cold this morning. A prelude to what winter will bring."
 	],
 
 	"fall/windy":
 	[
-	"test fall wind"
+	"You hear the sound of geese honking overhead as they migrate south for the winter.",
+	"Howling from outside awakens you with a start! However, you quickly realize it was just the wind",
+	"Coloured leaves blow passed your window, carried on the wind by a gentle breeze.",
+	"You catch a glimpse of birds darting about outside, prepairing for their migration south."
 	],
 
 	"fall/rain":
 	[
-	"test fall rain"
+	"The dull, gray light of sun filtered by clouds washes over the room. Soon after, you hear the rain begin to fall..",
+
 	],
 
 	"fall/lightning":
@@ -103,19 +117,23 @@
 	],
 
 
-	"winter/wedding":
-	[
-	"test winter wedding"
-	],
 
 	"winter/sunny":
 	[
-	"test winter sun"
+	"You hear the soft crunching of snow from outside. A snow rabbit perhaps?",
+	"A chill draft wakes you from your sleep...",
+	"You catch a glimpse of the snow outside. It sparkles in the morning sunlight.",
+	"Your bed is warm and cozy.... you really don't want to get up, but the day has started.",
+	"The air is crisp and cool and your ears are a little chilled in the morning air.",
+	"You lay in bed a few minuets more. It's too cozy to get up just yet.",
+	"You dreamt about the holidays last night. It's put you in a cheery mood this morning",
+	"Your windows are frosted over with ice on the rims. It's bitterly cold today."
 	],
 
 	"winter/snow":
 	[
-	"test winter snow"
+	"You see the snow falling sliently outside.",
+	"The snow defens the sounds outside, leaving you in a warm cozy silence."
 	],
 
 	"festOfIce":
