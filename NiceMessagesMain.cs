@@ -33,7 +33,6 @@ namespace Nice_Messages
             catch (System.Collections.Generic.KeyNotFoundException) {
                 Monitor.Log("Invalid key: Make sure there are no spelling errors in the keys in unifiedMessages.json\n"+
                     "For a list of valid keys, please see the README", LogLevel.Error);
-                //TODO: make the readme.
             }
         }
 

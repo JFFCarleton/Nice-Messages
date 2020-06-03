@@ -34,12 +34,10 @@ namespace Nice_Messages
 
         //Creates a key to be used by final dictonary.
         //Keys are strings in "<season>/<weather>" format except for festivals, since they are fixed seasons
-        //      planning to add in section for fests after main functionality is working
         //Keys will be used to select the correct table of lines from the master dictonary
 
         /* 
          * VALD KEYS ********************************************************************
-         * spring/wedding       summer/wedding      fall/wedding        winter/wedding  *
          * spring/sunny         summer/sunny        fall/sunny          winter/sunny    *
          * spring/windy                             fall/windy                          *
          * spring/rain          summer/rain         fall/rain                           *
@@ -60,8 +58,7 @@ namespace Nice_Messages
                 case 6:     return "fall/windy";
                 case 7:     return "winter/snow";
             }
-            //put in exception handel here.
-            return "error";
+            return null;
         }
 
     }//end of class
