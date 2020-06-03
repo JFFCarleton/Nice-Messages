@@ -6,5 +6,5 @@
   "UniqueID": "nori.NiceMessages",
   "EntryDll": "Nice Messages.dll",
   "MinimumApiVersion": "3.0.0",
-  "UpdateKeys": []
+  "UpdateKeys": ["Nexus:6160"]
 }
