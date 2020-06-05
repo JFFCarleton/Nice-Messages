@@ -34,7 +34,7 @@ namespace Nice_Messages
             catch (System.NullReferenceException) { Monitor.Log("Fest Name Null", LogLevel.Info); }
 
             //this'll show up during cutscenes. //TODO: Rememer the player is can move condition
-            Game1.showGlobalMessage(niceMessages.getMorningMessage(Game1.currentSeason, Game1.weatherIcon, Game1.dayOfMonth));
+            Game1.showGlobalMessage(niceMessages.getMorningMessage(Game1.currentSeason, Game1.weatherIcon));
         }
 
         //listeners
