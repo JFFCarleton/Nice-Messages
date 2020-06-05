@@ -2,11 +2,12 @@
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using StardewValley;
+using StardewValley.Minigames;
 
 namespace Nice_Messages
 {
     public class NiceMessagesMain : Mod{
-        private NiceMessages niceMessages;
+        private MorningMessages niceMessages;
         private ModConfig Config;
         private IModHelper mainHelper;
         
@@ -16,11 +17,27 @@ namespace Nice_Messages
             this.Config = this.Helper.ReadConfig<ModConfig>();
             mainHelper.Events.GameLoop.SaveLoaded += GameLoop_SaveLoaded;
             mainHelper.Events.GameLoop.DayStarted += GameLoop_DayStarted;
+            mainHelper.Events.Player.Warped += Player_Warped;
+        }
+
+        private void Player_Warped(object sender, WarpedEventArgs e)
+        {
+            var tester = Game1.currentLocation;
+            Monitor.Log("Current location: "+tester.Name, LogLevel.Info);
+            try
+            {
+                
+                Monitor.Log("Current Fest: " + tester.currentEvent.FestivalName, LogLevel.Info);
+            }
+            catch (System.NullReferenceException) { Monitor.Log("Fest Name Null", LogLevel.Info); }
+
+            //this'll show up during cutscenes. //TODO: Rememer the player is can move condition
+            Game1.showGlobalMessage(niceMessages.getMorningMessage(Game1.currentSeason, Game1.weatherIcon, Game1.dayOfMonth));
         }
 
         //listeners
         private void GameLoop_SaveLoaded(object sender, SaveLoadedEventArgs e){
-            this.niceMessages = new NiceMessages(mainHelper);
+            this.niceMessages = new MorningMessages(mainHelper);
         }
 
         private void GameLoop_DayStarted(object sender, DayStartedEventArgs e){

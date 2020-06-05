@@ -43,7 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NiceMessages.cs">
+    <Compile Include="TownMessages.cs" />
+    <Compile Include="MorningMessages.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="NiceMessagesMain.cs">

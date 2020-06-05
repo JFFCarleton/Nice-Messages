@@ -8,11 +8,11 @@ using StardewValley;
 
 namespace Nice_Messages
 {
-    class NiceMessages {
+    class MorningMessages {
         private Dictionary< string, string[] > unifiedMessages;
         private IModHelper modelHelper;
 
-        public NiceMessages(IModHelper helper)
+        public MorningMessages(IModHelper helper)
         {
             this.modelHelper = helper;
             this.unifiedMessages = modelHelper.Content.Load<Dictionary<string,string[]>>("unifiedMessages.json", ContentSource.ModFolder);
@@ -66,29 +66,6 @@ namespace Nice_Messages
             //put in exception handel here.
             return "error";
         }
-
-        /*CUT FOR NOW: Will reimpliment in future version.
-         * I don't think it fits with the "morning messages" idea. I will expand on this if I make messages for player entering
-         * new areas.
-         * When I get a icon number of "1", it means it's a festival day. since each festival, no matter the season, has a
-         * unique day on which it takes place, all I have to do is check the number.
-         
-        private string identifyFest(int dayOfMonth)
-        {
-            switch (dayOfMonth)
-            {
-                case 13:    return "eggFest";
-                case 24:    return "flowerDance";
-                case 11:    return "luau";
-                case 28:    return "moonlightJellies";
-                case 16:    return "stardewValleyFair";
-                case 27:    return "spiritsEve";
-                case 8:     return "festOfIce";
-                case 25:    return "winterStar";
-            }
-            return "error";
-        }
-        */
 
     }//end of class
 }//end of namespace
