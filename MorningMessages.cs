@@ -8,11 +8,11 @@ using StardewValley;
 
 namespace Nice_Messages
 {
-    class NiceMessages {
+    class MorningMessages {
         private Dictionary< string, string[] > unifiedMessages;
         private IModHelper modelHelper;
 
-        public NiceMessages(IModHelper helper)
+        public MorningMessages(IModHelper helper)
         {
             this.modelHelper = helper;
             this.unifiedMessages = modelHelper.Content.Load<Dictionary<string,string[]>>("unifiedMessages.json", ContentSource.ModFolder);
