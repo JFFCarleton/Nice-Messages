@@ -1,7 +1,9 @@
 ﻿using System;
+using Microsoft.Xna.Framework;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using StardewValley;
+
 
 namespace Nice_Messages
 {
@@ -26,8 +28,19 @@ namespace Nice_Messages
         private void GameLoop_DayStarted(object sender, DayStartedEventArgs e){
             //chance a message will appear, editable in config.json
             if (Config.msgChance < new Random().Next(1, 99)) { return; }
-            try 
-            { Game1.showGlobalMessage(niceMessages.getMorningMessage(Game1.currentSeason, Game1.weatherIcon)); }
+
+            /*
+             * The below script will generate a string from the NiceMessages object, make it into a HUDmessage object,
+             * then it will change the timeLeft (in miliseconds) attribute of that object according to the user's setting 
+             * loaded form the config.json file.
+             */
+            try
+            {
+            HUDMessage morningMsg = new HUDMessage
+                (niceMessages.getMorningMessage(Game1.currentSeason, Game1.weatherIcon), "");
+            morningMsg.timeLeft = Config.msgFadeOutTimer;
+            Game1.addHUDMessage(morningMsg);
+            }
 
             //Catch a bad formatting excption
             catch (System.Collections.Generic.KeyNotFoundException) {
@@ -40,6 +53,7 @@ namespace Nice_Messages
 
     public class ModConfig {
         public int msgChance { get; set; } = 100;
+        public float msgFadeOutTimer { get; set; } = 5500;
     
     }//end of class
 }//end of namespace

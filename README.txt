@@ -1,4 +1,4 @@
-﻿~Nice Messages Version 1.2.0~
+﻿~Nice Messages Version 1.2.1~
 
 This mod is meant to add flavour text to your morning routines in Stardew Valley!
 
@@ -10,13 +10,26 @@ included in the mod for you to enjoy! You may also decide the % chance that thes
 (By default, set to 100% chance of a message each morning.)
 
 ---Customization---
- %%% How to change the chance a message will appear in the morning %%%
+
+/\__CONFIG OPTIONS__/\
+
+HOW TO CHANGE PERCENT (%) CHANCE A MESSAGE WILL APPEAR IN THE MORNING
  1. Open the Nice Messages mod folder
  2. Open 'config.json' in a plain text editor.
     a. Notepad works just fine, Notepad++ if you have it.
  3. Change the number to the percent chance you want to see a message happen, between 1 and 100
 
- " " " " " How to add/remove/customize messages " " " " "
+ HOW TO CHANGE THE AMOUNT OF TIME A MESSAGE WILL BE DISPLAYED ON SCREEN
+ 1. Open the Nice Messages mod folder
+ 2. Open 'config.json' in a plain text editor.
+ 3. Change the msgFadeOutTimer option:
+    - This number is done in milliseconds 1 second = 1000 milliseconds. Take the number of seconds 
+      you want to delay the message and multiply it by 1000
+    - EXAMPLE: 5.5 seconds = 5500
+
+/\__MESSAGE OPTIONS__/\
+
+HOW TO ADD/REMOVE/CUSTOMIZE MESSAGES
  1. Open the Nice Messages mod folder
  2. Open unifiedMessages.json.
  3.
