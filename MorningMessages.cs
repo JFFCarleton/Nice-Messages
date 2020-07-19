@@ -9,13 +9,13 @@ using StardewValley;
 namespace Nice_Messages
 {
     class MorningMessages {
-        private Dictionary< string, string[] > unifiedMessages;
+        private Dictionary< string, string[] > morningMessages;
         private IModHelper modelHelper;
 
         public MorningMessages(IModHelper helper)
         {
             this.modelHelper = helper;
-            this.unifiedMessages = modelHelper.Content.Load<Dictionary<string,string[]>>("unifiedMessages.json", ContentSource.ModFolder);
+            this.morningMessages = modelHelper.Content.Load<Dictionary<string,string[]>>("morningMessages.json", ContentSource.ModFolder);
         }
 
         /*
@@ -27,7 +27,7 @@ namespace Nice_Messages
         public string getMorningMessage(string currSeason, int weatherIcon)
         {
             string weatherKey = identifyWeather(currSeason, weatherIcon);
-            string[] msgTable = unifiedMessages[weatherKey];
+            string[] msgTable = morningMessages[weatherKey];
             return msgTable[new Random().Next(msgTable.Length - 1)];
         }
 
@@ -36,15 +36,13 @@ namespace Nice_Messages
         //Keys are strings in "<season>/<weather>" format except for festivals, since they are fixed seasons
         //Keys will be used to select the correct table of lines from the master dictonary
 
-        /* 
-         * VALD KEYS ********************************************************************
+        /* VALD KEYS ********************************************************************
          * spring/sunny         summer/sunny        fall/sunny          winter/sunny    *
          * spring/windy                             fall/windy                          *
          * spring/rain          summer/rain         fall/rain                           *
          * spring/lightning     summer/lightning    fall/lightning                      *
          *                                                              winter/snow     *
-         * ******************************************************************************
-         */
+         * ******************************************************************************/
         private string identifyWeather(string currSeason, int currWeather) 
         {   
             switch (currWeather) 
