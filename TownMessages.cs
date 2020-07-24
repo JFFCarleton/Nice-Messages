@@ -55,8 +55,12 @@ namespace Nice_Messages
          */
         public string getTownMessage(string curLoc) 
         {
-            string[]msgTable = townMsgDict[curLoc];
-            return msgTable[new Random().Next(msgTable.Length - 1)];
+            if (townMsgDict.ContainsKey(curLoc))
+            {
+                string[] msgTable = townMsgDict[curLoc];
+                return msgTable[new Random().Next(msgTable.Length - 1)];
+            }
+            return null;
         }
 
 

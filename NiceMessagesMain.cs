@@ -76,41 +76,35 @@ namespace Nice_Messages
                 //      townMessages.getFestMsg(whichFest);
             }
 
-            //i just need to pass the string location name.
-
-
-            /*1. config roll chance {return;}
-             *2. get and pass in the game location
-             *3. display the message.
-             *4. try/catch out of bounds key. put in message saying that event or location supported.*/
-
-
-            try
-            {
-                Monitor.Log(townMessages.getTownMessage(newLoc.Name), LogLevel.Warn);
-            }
-            catch (System.Collections.Generic.KeyNotFoundException) 
-            {
-                Monitor.Log("key doesn't exit for this locaiton yet", LogLevel.Error);
-            }
+            ////////testblock///////////
+            Monitor.Log("Current Location: "+newLoc.Name, LogLevel.Info);
+            Monitor.Log(townMessages.getTownMessage(newLoc.Name) ?? "not in list.", LogLevel.Warn);
+            ////////testblock///////////
             
-            
+            //let's just do some dumb code.
+
+            String msgToDisplay = townMessages.getTownMessage(newLoc.Name);
+            if (msgToDisplay == null) { return; }
+
+            HUDMessage townMsg = new HUDMessage(msgToDisplay, "");
+            townMsg.timeLeft = Config.townMsgFadeOut;
+            Game1.addHUDMessage(townMsg);
+
+            ////////////////////////////block for testing, delete later////////////////////////////////////////////////
+
             Monitor.Log("Current location: " + newLoc.Name, LogLevel.Info);
             try
             {
                 Monitor.Log("Current Fest: " + newLoc.currentEvent.FestivalName, LogLevel.Info);
             }
             catch (System.NullReferenceException) { Monitor.Log("Fest Name Null", LogLevel.Info); }
-
-            //this'll show up during cutscenes. //TODO: Rememer the player is can move condition
-            Game1.showGlobalMessage(morningMessages.getMorningMessage(Game1.currentSeason, Game1.weatherIcon));
-        }
-
+        } 
+        ////////////////////////////block for testing, delete later////////////////////////////////////////////////
     }//end of class
 
     public class ModConfig {
         public int msgChance { get; set; } = 100;
-        public int twnMsgChance { get; set; } = 100;
+        public int twnMsgChance { get; set; } = 65;
         public float morningMsgFadeOut { get; set; } = 5500;
         public float townMsgFadeOut { get; set; } = 5500;
     
