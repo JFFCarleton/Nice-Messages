@@ -23,6 +23,8 @@ namespace Nice_Messages
         //listeners
         private void GameLoop_SaveLoaded(object sender, SaveLoadedEventArgs e){
             this.niceMessages = new NiceMessages(mainHelper);
+
+            this.niceMessages.setMessagePool();
         }
 
         private void GameLoop_DayStarted(object sender, DayStartedEventArgs e){
@@ -36,10 +38,14 @@ namespace Nice_Messages
              */
             try
             {
-            HUDMessage morningMsg = new HUDMessage
-                (niceMessages.getMorningMessage(Game1.currentSeason, Game1.weatherIcon), "");
-            morningMsg.timeLeft = Config.msgFadeOutTimer;
-            Game1.addHUDMessage(morningMsg);
+                HUDMessage morningMsg = new HUDMessage
+                    (niceMessages.getMorningMessage(Game1.currentSeason, Game1.weatherIcon), "");
+
+                if (morningMsg.message.Length > 1)
+                {
+                    morningMsg.timeLeft = Config.msgFadeOutTimer;
+                    Game1.addHUDMessage(morningMsg);
+                }
             }
 
             //Catch a bad formatting excption
