@@ -31,36 +31,26 @@ HOW TO CHANGE PERCENT (%) CHANCE A MESSAGE WILL APPEAR IN THE MORNING
 
 HOW TO ADD/REMOVE/CUSTOMIZE MESSAGES
  1. Open the Nice Messages mod folder
- 2. Open unifiedMessages.json.
+ 2. Open one of the translation files (default.json, ru.json, etc)
  3.
     In this file you will see all the included messages in this format: 
-                                "key":
-                                [
-                                "value"
-                                ]
+                                "key": "value"
+
 
     ..:::EXAMPLE:::..
     
-    }
-        "spring/sunny":
-	    [
-        "msg1",
-        "msg2"
-	    ],
-
-	    "spring/windy":
-	    [
-        "msg3",
-        "msg4",
-        "msg5"
-	    ],
-
-	    "spring/rain":
-	    [
-        "msg6",
-        "msg7"
-	    ]
-    
+    {
+        "spring/sunny1": "msg",
+        "spring/sunny2": "msg",
+        ...
+        "spring/sunny<name>: "msg",
+        ...
+	"spring/windy<name>": "msg",
+        ...
+	"spring/rain<name>": "msg",
+	...
+        ...
+        "winter/snow<name>": "msg"
     }
 
     Keys: The program looks for these particular keys. Changing them will render those messages unreachable. Please do not change them.
@@ -78,7 +68,8 @@ HOW TO ADD/REMOVE/CUSTOMIZE MESSAGES
            follow these rules:
 
         1. All messages must be in "quotation marks"
-        2. ALL messages must be between the [square brackets] for their respective season
+        2. ALL message keys must start with one of valid keys and finish with an unique name. 
+           In other words, you should follow next key format: "<weather><name>" ("spring/sunnyabc", "spring/windy123abc", etc).
         3. Unless the message is the final one in a season, all messages must be followed by a comma (,).
             --This is telling the program that these are sperate messages in a list. The last message without a comma
               tells the program that the list has ended.
