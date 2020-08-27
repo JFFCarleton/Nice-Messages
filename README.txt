@@ -74,6 +74,9 @@ HOW TO ADD/REMOVE/CUSTOMIZE MESSAGES
             --This is telling the program that these are sperate messages in a list. The last message without a comma
               tells the program that the list has ended.
 
+~~~~~~~~CREDITS~~~~~~~~~~~~~~
+Thank you to Kionell for adding in i18n translation support and updating the relevant code and README sections!
+
 
 ~~~~~~~~Afterword~~~~~~~~~~~~
 Thank you for downloading and trying my mod! It really means a lot to me that people are actually enjoying something I've made!
